@@ -4,7 +4,6 @@ from methods.auth_methods import AuthMethods
 from methods.order_methods import OrderMethods
 from preconditions.user_precondition import data_user, data_authorization_user
 
-
 @pytest.fixture()
 def create_user():
     auth_methods = AuthMethods()
@@ -14,7 +13,6 @@ def create_user():
     access_token = {"Authorization": response.json()["accessToken"]}
     yield login_data, access_token
     auth_methods.delete_user(access_token)
-
 
 @pytest.fixture
 def get_ingredients():
